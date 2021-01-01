@@ -34,6 +34,18 @@ class register extends PolymerElement{
                 border: solid 1px #ccc;
                 padding: 10px;
                 text-align: center;
+                box-sizing: border-box;
+                white-space: nowrap;
+            }
+           
+            tr.iron-selected td {
+              background-color: rgba(0, 0, 0, 0.1);
+            }
+            tr:hover td {
+              background-color: rgba(0, 0, 0, 0.2);
+            }
+            tr td.iron-selected:not(:nth-of-type(1)) {
+              background-color: rgba(255, 255, 0, 0.2);
             }
 
         </style>
@@ -66,7 +78,7 @@ class register extends PolymerElement{
                   <!--- Iron Form Ends here--->
               
               <h3>Registered Data</h3>
-            <table style="width:90%">
+            <table is="s-table-lite" fixed-column style="width:90%">
                 <tr>
                     <th>Name</th>
                     <th>Address</th>
