@@ -8,6 +8,7 @@
     "@polymer/iron-localstorage": "^3.0.1",
     "@polymer/iron-pages": "^3.0.1",
     "@polymer/paper-button": "^3.0.1",
+    "@polymer/paper-input": "^3.2.1",
     "@polymer/polymer": "^3.0.0",
     "material-components-web": "^8.0.0"
   },

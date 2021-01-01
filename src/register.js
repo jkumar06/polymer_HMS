@@ -1,7 +1,6 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import '@polymer/paper-button/paper-button.js';
-import '@polymer/iron-localstorage/iron-localstorage.js';
 import '@polymer/iron-form/iron-form.js';
+import '@polymer/paper-input/paper-input.js';
 
 
 class register extends PolymerElement{
@@ -12,7 +11,7 @@ class register extends PolymerElement{
         return html `
         <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
     <script src="/node_modules/material-design-lite/material.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   
         <style>
             *{box-sizing:border-box;}
             html,body {margin: 0; padding: 0;}
@@ -24,31 +23,17 @@ class register extends PolymerElement{
                 margin:10px;
             }
             input {
-                width: 70%;
+                width:100px;
+                margin:0 50%;
+                position:relative;
                 border: solid 1px #eee;
                 padding: 11px 10px;
-                margin-bottom: 15px;
-                
-            }
-            button {
-                width: 200px;
-                padding: 15px;
-                margin-left: 250px;
-                background: none;
-                outline: none;
-                color: dodgerblue;
-                border: solid 1px dodgerblue;
-                cursor: pointer;
-                border-radius: 33px;
-                transition:all .38s ease-in-out;
-            }
-            button:hover {
-                background: dodgerblue;
-                color: fff;
-            }
+                left:-70px
+                }     
              tr, td, th {
                 border: solid 1px #ccc;
-				padding: 10px;
+                padding: 10px;
+                text-align: center;
             }
 
         </style>
@@ -58,36 +43,31 @@ class register extends PolymerElement{
               <h3>Patient Registration</h3>
               <!--- Iron Form Starts Here--->
               <iron-form>
-              <!--<form is = "iron-form" id = "patientform"  name="patientform">-->
-                  <div class="mdl-grid">
+              <form is = "iron-form" id = "patientform"  name="patientform">
+                <div class="mdl-grid">
                   <div class="mdl-cell mdl-cell--6-col">
-                 
-                  <input type="text" name="fname" id="fname" value ="" placeholder="Name" required>
-                  <div id="div1" style="color:red;"></div>
+                  <paper-input label="Enter First Name" name="fname" id="fname" required auto-validate error-message="First Name must be filled out"></paper-input>
                   </div>
-                  <div class = "mdl-cell mdl-cell--6-col">
-                  <input type="text" name="address" id="address" value="" placeholder="Address" required>
-                  <div id="div2" style="color:red;"></div>
+                  <div class="mdl-cell mdl-cell--6-col">
+                  <paper-input label="Enter Address" name="address" id="address" required auto-validate error-message="Enter address here"></paper-input>
                   </div>
-                  <div class = "mdl-cell mdl-cell--6-col">
-                  <input type="email" name="email" id="email" placeholder="Email" required>
-                  <div id="div3" style="color:red;"></div>
+                  <div class="mdl-cell mdl-cell--6-col">
+                  <paper-input type="email" label="Enter email" name="email" id="email" required auto-validate error-message="Email must be filled out"></paper-input>
                   </div>
-                  <div class = "mdl-cell mdl-cell--6-col">
-                  <input type="phone" name="phone" id="phone" value="" placeholder="Number" required>
-                  <div id="div4" style="color:red;"></div>
+                  <div class="mdl-cell mdl-cell--6-col">
+                  <paper-input label="Enter phone number" name="number" id="phone" required  auto-validate pattern="[0-9]*" error-message="Phone number must be filled out" maxlength="10"></paper-input>
                   </div>
-                  <div class = "mdl-cell mdl-cell--4-col">
-                  <input type="submit" on-click="addpatient">
-                    
+                  <div class="mdl-cell mdl-cell--12-col">
+                  <input type="submit" value="Submit" on-click="addpatient" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn">
                   </div>
-                  </iron-form>
+                </div>                    
+              </form>
+            </iron-form>
                   <!--- Iron Form Ends here--->
-              <!--</form>-->
+              
               <h3>Registered Data</h3>
             <table style="width:90%">
                 <tr>
-                   
                     <th>Name</th>
                     <th>Address</th>
                     <th>Email</th>
@@ -132,54 +112,15 @@ class register extends PolymerElement{
 
     addpatient() {
 
-		if (typeof(Storage) !== "undefined") {
-				var fname =  this.$.fname.value;
-			    var address = this.$.address.value; 
-			    var email = this.$.email.value;
-				var number = this.$.phone.value;
-               
-                //getting value from form
-                
-				if (fname == "") {
-					//alert("Name must be filled out");
-					this.$.div1.innerHTML = " Name must be filled out";
-					this.$.div1.style.display = "block";
-					return false;
-				} else {
-					this.$.div1.style.display = "none";
-		}
-		        if (address == "") {
-			        //alert("Address must be filled out");
-		         	this.$.div1.innerHTML = " Address must be filled out";
-		        	this.$.div1.style.display = "block";
-		        	return false;
-		        } else {
-			this.$.div1.style.display = "none";
-		}
-				if (email == "") {
-			        //alert("Email must be filled out");
-			        this.$.div1.innerHTML = " Email must be filled out";
-			        this.$.div1.style.display = "block";
-			        return false;
-		        } else {
-	       this.$.div1.style.display = "none";
-		}
-				if (number == "") {
-					//alert("Email must be filled out");
-					this.$.div1.innerHTML = " Number must be filled out";
-					this.$.div1.style.display = "block";
-					return false;
-				} else {
-			this.$.div1.style.display = "none";
-        }			
-	}
 			let vals = {name: this.$.fname.value,
 					   address: this.$.address.value, 
 					   email: this.$.email.value,
-					   number: this.$.phone.value};
+                       number: this.$.phone.value};
+                //getting values from patient form
             let pInfo = []
             if(this.patientInfo){
                 pInfo = [...this.patientInfo,vals]
+                //storing patientInfo values to pInfo
             }else{
                 pInfo = [vals]
             }
@@ -188,6 +129,5 @@ class register extends PolymerElement{
 	
       }
     }
-
 
 customElements.define('register-element',register);

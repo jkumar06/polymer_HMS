@@ -62,7 +62,7 @@ class doctorsList extends PolymerElement{
 	
 				<div class="card">
 					<a href="consult.html">
-						<img src="./src/assets/Physician.jpg" width="100%" height="100px" style="border-radius: 10px;"> <br/><br/>
+						<img src="./src/assets/urologist.jpg" width="100%" height="100px" style="border-radius: 10px;"> <br/><br/>
 						<p class="card-title">Physician</p>
 					</a>
 				</div>  

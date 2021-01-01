@@ -100,27 +100,28 @@ class MainApp extends PolymerElement {
       } 
   </style>
     <section id="main-content">
-          <app-location route="{{route}}"></app-location>
+        <app-location route="{{route}}"></app-location>
+                    <!-- app-location binds to the app's URL -->
         <app-route route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
+                    <!-- this app-route manages the top-level routes -->
       <div class="menu-content">
         <ul>
           <li><a href="/home">Home</a></li>
           <li><a href="/doctors">Doctors</a></li>
-          <li><a href="/contact">Contact</a></li>
           <li><a href="/register">Register</a></li>
+          <li><a href="/contact">Contact</a></li>
         
         </ul>    
       </div>
-
+ 
     <div class="body-content">
       <iron-pages selected="[[page]]" attr-for-selected="name" selected-attribute="visible" fallback-selection="404">
+                   <!-- iron-pages selects the view based on the active route -->
         <home-element name="home"></home-element>
         <doctors-element name="doctors"></doctors-element>
-        <contact-element name="contact"></contact-element>
         <register-element name="register"></register-element>
-   
-      
-      </iron-pages>
+        <contact-element name="contact"></contact-element>
+     </iron-pages>
     </div>
     </section>
     `;
@@ -131,6 +132,7 @@ class MainApp extends PolymerElement {
       page:{
         type: String,
         observer: '_pageChanged'
+            // import the page
       }
     };
   }
@@ -142,30 +144,30 @@ class MainApp extends PolymerElement {
   /* Function is called when the component is initalized*/
 
   _routerChanged(page){
-	  this.page = page || 'conta';
+    this.page = page || 'home';
   }
     /* Complex observer triggers on any changes in component. It is required to observe/set current page*/  
 
   _pageChanged(currentPage, oldPage){
 
-    console.log('CURRENT - ', currentPage);
-    console.log('OLD - ', oldPage);
+    // console.log('Current Page is - ', currentPage);
+    // console.log('Old Page is - ', oldPage);
     
 	  switch(currentPage){
-		  case 'home':
+		case 'home':
 			import('./home.js').then()
 			break;
 		case 'doctors':
 			import('./doctors.js').then()
 			break;
-		case 'contact':
-			import('./contact.js').then()
-			break;
-    case 'register':
+		case 'register':
         import('./register.js').then()
         break;
+    case 'contact':
+			import('./contact.js').then()
+			break;
 		default:
-			this.page = 'contact';
+			this.page = 'home';
 	  }
   }
 }
