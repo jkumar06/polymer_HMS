@@ -43,8 +43,10 @@ class contactUs extends PolymerElement{
   padding: 16px 32px;
   text-decoration: none;
   margin: 0 auto;
+  border-radius: 10px;
   cursor: pointer;
   display: block;
+  outline:none;
 }
 #contact textarea {
   height: 100px;

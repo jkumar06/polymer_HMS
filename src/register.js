@@ -32,6 +32,8 @@ class register extends PolymerElement{
               margin: 0 auto;
               cursor: pointer;
               display: block;
+              outline: none;
+              border-radius: 10px;
             }
              
              tr, td, th {
