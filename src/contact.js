@@ -1,4 +1,6 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import '@polymer/iron-form/iron-form.js';
+import '@polymer/paper-input/paper-input.js';
 
 
 class contactUs extends PolymerElement{
@@ -11,29 +13,7 @@ class contactUs extends PolymerElement{
 		
 		return html `
 		<style>
-		@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  -o-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-body {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
-  font-weight: 100;
-  font-size: 12px;
-  line-height: 30px;
-  color: #777;
-  background: #4CAF50;
-  
-}
+	
 
 .container {
   max-width: 400px;
@@ -116,42 +96,7 @@ fieldset {
   font-size: 15px;
 }
 
-#contact button[type="submit"]:hover {
-  background: #43A047;
-  -webkit-transition: background 0.3s ease-in-out;
-  -moz-transition: background 0.3s ease-in-out;
-  transition: background-color 0.3s ease-in-out;
-}
 
-#contact button[type="submit"]:active {
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.copyright {
-  text-align: center;
-}
-
-#contact input:focus,
-#contact textarea:focus {
-  outline: 0;
-  border: 1px solid #aaa;
-}
-
-::-webkit-input-placeholder {
-  color: #888;
-}
-
-:-moz-placeholder {
-  color: #888;
-}
-
-::-moz-placeholder {
-  color: #888;
-}
-
-:-ms-input-placeholder {
-  color: #888;
-} 
 .contactus {
 	
 	float: right
@@ -165,30 +110,29 @@ fieldset {
 		
 		</style>
 			
-			<div class="container">  
-  <form id="contact" action="" method="post">
-    <h3> Contact us</h3>
- 
-    <fieldset>
-      <input placeholder="Your name" type="text" tabindex="1" required autofocus>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Your Email Address" type="email" tabindex="2" required>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Your Phone Number (optional)" type="tel" tabindex="3" required>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Your Web Site (optional)" type="url" tabindex="4" required>
-    </fieldset>
-    <fieldset>
-      <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
-    </fieldset>
-    <fieldset>
-      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-    </fieldset>
-  
-  </form>
+      <div class="container">  
+      <h3>Contact us</h3>
+      <iron-form>
+      <form is = "iron-form" id = "contactforms" method = "post"  name="contactus">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--6-col">
+          <paper-input label="Enter First Name" name="fname" id="fname" required auto-validate error-message="First Name must be filled out"></paper-input>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+          <paper-input label="Enter last name" name="designation" id="des" required auto-validate error-message="lastname must be filled out"></paper-input>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+          <paper-input label="Enter phone number" name="phone" id="phone" required  auto-validate pattern="[0-9]*" error-message="Phone number must be filled out" maxlength="10"></paper-input>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+          <paper-input type="email" label="Enter email" name="email" id="email" required auto-validate error-message="Email must be filled out"></paper-input>
+          </div>
+          <div class="mdl-cell mdl-cell--12-col">
+          <input type="submit" value="Submit" on-click="addpatient" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn">
+          </div>
+        </div>                    
+      </form>
+    </iron-form>
 </div>
 		<div class="contactus">
 	  <strong>Address</strong>
