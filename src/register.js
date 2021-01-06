@@ -10,6 +10,7 @@ class register extends PolymerElement{
         // The html helper function makes this easy.
         return html `
         <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
+        
     <script src="/node_modules/material-design-lite/material.min.js"></script>
    
         <style>
@@ -22,14 +23,7 @@ class register extends PolymerElement{
             .form-group {
                 margin:10px;
             }
-            input {
-                width:100px;
-                margin:0 50%;
-                position:relative;
-                border: solid 1px #eee;
-                padding: 11px 10px;
-                left:-70px
-                }     
+             
              tr, td, th {
                 border: solid 1px #ccc;
                 padding: 10px;
@@ -70,8 +64,9 @@ class register extends PolymerElement{
                   <paper-input label="Enter phone number" name="number" id="phone" required  auto-validate pattern="[0-9]*" error-message="Phone number must be filled out" maxlength="10"></paper-input>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
-                  <input type="submit" value="Submit" on-click="addpatient" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn">
+                 <button><paper-button raised value="Submit" on-click="addpatient" variant="contained" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn">Submit</paper-button></button>
                   </div>
+                  
                 </div>                    
               </form>
             </iron-form>
@@ -125,9 +120,9 @@ class register extends PolymerElement{
     addpatient() {
 
 			let vals = {name: this.$.fname.value,
-					   address: this.$.address.value, 
-					   email: this.$.email.value,
-                       number: this.$.phone.value};
+					        address: this.$.address.value, 
+					        email: this.$.email.value,
+                  number: this.$.phone.value};
                 //getting values from patient form
             let pInfo = []
             if(this.patientInfo){

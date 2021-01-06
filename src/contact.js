@@ -4,8 +4,7 @@ import '@polymer/paper-input/paper-input.js';
 
 
 class contactUs extends PolymerElement{
-	static get properties() {
-		
+	static get properties() {	
 	}
 	static get template(){
 		  // Template getter must return an instance of HTMLTemplateElement.
@@ -103,9 +102,7 @@ fieldset {
 	margin: 50px 0;
 	font-family: "Roboto", Helvetica, Arial, sans-serif;
 	font-size: 15px;
-	background-color: white;
-	
-	
+	background-color: white;	
 }
 		
 		</style>
@@ -128,7 +125,7 @@ fieldset {
           <paper-input type="email" label="Enter email" name="email" id="email" required auto-validate error-message="Email must be filled out"></paper-input>
           </div>
           <div class="mdl-cell mdl-cell--12-col">
-          <input type="submit" value="Submit" on-click="addpatient" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn">
+         <button><paper-button raised value="Submit" on-click="addpatient" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn">Submit </paper-button></button>
           </div>
         </div>                    
       </form>
