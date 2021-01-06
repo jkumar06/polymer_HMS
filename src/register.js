@@ -87,10 +87,10 @@ class register extends PolymerElement{
                 </tr>
                 <template is="dom-repeat" items="{{patientInfo}}">
                     <tr class="item">
-                        <td class="mdl-data-table__cell--non-numeric">{{item.name}}</td>
-                        <td class="mdl-data-table__cell--non-numeric">{{item.address}}</td>
-                        <td class="mdl-data-table__cell--non-numeric">{{item.email}}</td>
-                        <td class="mdl-data-table__cell--non-numeric">{{item.number}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">[[item.name]]</td>
+                        <td class="mdl-data-table__cell--non-numeric">[[item.address]]</td>
+                        <td class="mdl-data-table__cell--non-numeric">[[item.email]]</td>
+                        <td class="mdl-data-table__cell--non-numeric">[[item.number]]</td>
                     </tr>
                 </template>
             </table>
