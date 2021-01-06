@@ -115,6 +115,7 @@ class MainApp extends PolymerElement {
       </div>
  
     <div class="body-content">
+           <!-- Iron Pages Starts here -->
       <iron-pages selected="[[page]]" attr-for-selected="name" selected-attribute="visible" fallback-selection="404">
                    <!-- iron-pages selects the view based on the active route -->
         <home-element name="home"></home-element>
@@ -122,6 +123,7 @@ class MainApp extends PolymerElement {
         <register-element name="register"></register-element>
         <contact-element name="contact"></contact-element>
      </iron-pages>
+            <!-- Iron Pages Ends here -->
     </div>
     </section>
     `;
@@ -138,10 +140,9 @@ class MainApp extends PolymerElement {
   }
 
   static get observers(){
-	  return ['_routerChanged(routeData.page)'];  
+    return ['_routerChanged(routeData.page)'];  
+      //it to checks the routing data changes
   }
-
-  /* Function is called when the component is initalized*/
 
   _routerChanged(page){
     this.page = page || 'home';
