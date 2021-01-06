@@ -134,7 +134,7 @@ class MainApp extends PolymerElement {
       page:{
         type: String,
         observer: '_pageChanged'
-            // import the page
+            // importing the page
       }
     };
   }
