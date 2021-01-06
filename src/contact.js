@@ -13,22 +13,12 @@ class contactUs extends PolymerElement{
 		return html `
 		<style>
 	
-
 .container {
   max-width: 400px;
   width: 100%;
   margin: 0 auto;
   position: relative;
   margin-left: 15%;
-}
-
-#contact input[type="text"],
-#contact input[type="email"],
-#contact input[type="tel"],
-#contact input[type="url"],
-#contact textarea,
-#contact button[type="submit"] {
-  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
 }
 
 #contact {
@@ -46,38 +36,16 @@ class contactUs extends PolymerElement{
   text-align: center;
 }
 
-
-fieldset {
-  border: medium none !important;
-  margin: 0 0 10px;
-  min-width: 100%;
-  padding: 0;
-  width: 100%;
+#submitBtn {
+  background-color: #e7e7e7;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 0 auto;
+  cursor: pointer;
+  display: block;
 }
-
-#contact input[type="text"],
-#contact input[type="email"],
-#contact input[type="tel"],
-#contact input[type="url"],
-#contact textarea {
-  width: 100%;
-  border: 1px solid #ccc;
-  background: #FFF;
-  margin: 0 0 5px;
-  padding: 10px;
-}
-
-#contact input[type="text"]:hover,
-#contact input[type="email"]:hover,
-#contact input[type="tel"]:hover,
-#contact input[type="url"]:hover,
-#contact textarea:hover {
-  -webkit-transition: border-color 0.3s ease-in-out;
-  -moz-transition: border-color 0.3s ease-in-out;
-  transition: border-color 0.3s ease-in-out;
-  border: 1px solid #aaa;
-}
-
 #contact textarea {
   height: 100px;
   max-width: 100%;
@@ -125,7 +93,7 @@ fieldset {
           <paper-input type="email" label="Enter email" name="email" id="email" required auto-validate error-message="Email must be filled out"></paper-input>
           </div>
           <div class="mdl-cell mdl-cell--12-col">
-         <button><paper-button raised value="Submit" on-click="addpatient" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn">Submit </paper-button></button>
+          <button id="submitBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Contact</button>
           </div>
         </div>                    
       </form>

@@ -140,13 +140,16 @@ class MainApp extends PolymerElement {
   }
 
   static get observers(){
+   
     return ['_routerChanged(routeData.page)'];  
       //it to checks the routing data changes
   }
 
-  _routerChanged(page){
-    this.page = page || 'home';
+  _routerChanged(page){ 
+      this.page = page || 'home';
   }
+
+
     /* Complex observer triggers on any changes in component. It is required to observe/set current page*/  
 
   _pageChanged(currentPage, oldPage){

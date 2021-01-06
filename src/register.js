@@ -23,6 +23,16 @@ class register extends PolymerElement{
             .form-group {
                 margin:10px;
             }
+            #submitBtn {
+              background-color: #e7e7e7;
+              border: none;
+              color: black;
+              padding: 16px 32px;
+              text-decoration: none;
+              margin: 0 auto;
+              cursor: pointer;
+              display: block;
+            }
              
              tr, td, th {
                 border: solid 1px #ccc;
@@ -64,9 +74,8 @@ class register extends PolymerElement{
                   <paper-input label="Enter phone number" name="number" id="phone" required  auto-validate pattern="[0-9]*" error-message="Phone number must be filled out" maxlength="10"></paper-input>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
-                 <button><paper-button raised value="Submit" on-click="addpatient" variant="contained" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn">Submit</paper-button></button>
-                  </div>
-                  
+                  <button id="submitBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"" on-click="addpatient">Submit</button>
+            </div>
                 </div>                    
               </form>
             </iron-form>
